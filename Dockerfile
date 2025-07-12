@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copy the JAR file from the target directory to the container
-COPY target/paisagarage-0.0.1-SNAPSHOT.jar app.jar
+COPY paisagarage-0.0.1-SNAPSHOT.jar app.jar
 
 # Expose port 8080 (or your application's port)
 EXPOSE 8080
