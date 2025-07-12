@@ -1,6 +1,8 @@
 
-package com.example.demo;
+package com.example.demo.service;
 
+import com.example.demo.entity.VehicleInfo;
+import com.example.demo.repository.VehicleRepository;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +14,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ExcelService {
+public class ExcelServiceImp implements ExcelService {
 
     @Autowired
     private VehicleRepository repository;
 
+    @Override
     public void saveFromExcel(MultipartFile file) throws Exception {
         List<VehicleInfo> vehicles = new ArrayList<>();
         InputStream inputStream = file.getInputStream();
@@ -43,6 +46,7 @@ public class ExcelService {
         repository.saveAll(vehicles);
     }
 
+    @Override
     public VehicleInfo getByVehicleNo(String vehicleNo) {
         return repository.findById(vehicleNo).orElse(null);
     }

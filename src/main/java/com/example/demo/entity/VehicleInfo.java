@@ -1,22 +1,33 @@
 
-package com.example.demo;
+package com.example.demo.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table
 public class VehicleInfo {
 
     @Id
+    @Column
     private String vehicleNo;
-
+    @Column
     private String customerName;
+    @Column
     private String vehicleName;
+    @Column
     private String mobile;
+    @Column
     private String hypotication;
+    @Column
     private String address;
+    @Column
     private String engineNo;
+    @Column
     private String chasisNo;
+    @Column
     private String date;
 
     public String getVehicleNo() { return vehicleNo; }
